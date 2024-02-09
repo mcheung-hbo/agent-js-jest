@@ -60,6 +60,10 @@ class JestReportPortal {
     const { tempId, promise } = this.client.startLaunch(startLaunchObj);
 
     this.tempLaunchId = tempId;
+
+    process.env.RL_LAUNCHID = this.tempLaunchId;
+    console.log(`Report Portal Launch ID: ${process.env.RL_LAUNCHID}`);
+
     promiseErrorHandler(promise);
     this.promises.push(promise);
   }
